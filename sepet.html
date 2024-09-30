@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SUM Cafe</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Sepetteki Ürünler</h1>
+    <div id="sepet-icerik">
+        
+       
+        <div class="menuKahveBox">     
+            <div class="menuKahveColumn" id="menuKahveColumn">
+                 <div class="box">
+                    <div>
+                        <img id="kahve-resim" src="" alt="Kahve Resmi" style="width:150px; height:auto;">
+                    </div>
+                    <p>Ürün: <span id="kahve-isim"></span></p>
+                    <p>Fiyat: <span id="kahve-fiyat"></span> TL</p>
+                    <p>Miktar: <span id="kahve-miktar"></span></p>
+                    <button class="urunButton" onclick="urunArtir('kahve1')" id="urunArttır">Arttır</button>
+                    <button class="urunButton" onclick="urunAzalt('kahve1')" id="urunArttır">Azalt</button>
+                </div>
+                <div class="box" id = "Cay">
+                    <div>
+                        <img id="cay-resim" src="" alt="Cay Resmi" style="width:150px; height:auto;">
+                    </div>
+                    <p>Ürün: <span id="cay-isim"></span></p>
+                    <p>Fiyat: <span id="cay-fiyat"></span> TL</p>
+                    <p>Miktar: <span id="cay-miktar"></span></p>
+                    <button class="urunButton" onclick="urunArtir('cay1')" id="urunArttır">Arttır</button>
+                    <button class="urunButton" onclick="urunAzalt('cay1')" id="urunArttır">Azalt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="cartButton" id="sepeti-bosalt-button" onclick="sepetiBosalt()">Sepeti Boşalt</button>
+    <!-- main.js dosyasını dahil et -->
+    <script  src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+body {
+    background-color: bisque;
+    height: 900vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%; /* Mobil uyumluluk için padding azaltıldı */
+    margin: 2rem 5%;
+    border-radius: 30rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menuImg img {
+    height: 8rem; /* Mobil ekranlarda daha küçük resimler */
+}
+
+.menu {
+    padding: 25px 0;
+}
+
+.menu h1 {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1.5rem; /* Mobil uyumluluk için font boyutu azaltıldı */
+    font-family: Verdana;
+}
+
+.menu .menuKahveBox {
+    display: flex;
+    flex-direction: column; /* Mobil uyumluluk için dikey düzen */
+    padding: 0 10px;
+}
+
+.menuKahveColumn {
+    box-shadow: 2px 2px 2px #bbb;
+    border: 1px solid #bbb;
+    margin: 5px 0; /* Mobil ekranlarda dikey margin */
+    flex: 1;
+}
+
+.menu h2 {
+    color: black;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-family: cursive;
+}
+
+.menuKahveColumn .box {
+    box-shadow: 2px 2px 2px #bbb;
+    border: 1px solid #bbb;
+    margin: 5px 0;
+    flex: 1;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    margin: 5px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.menuKahveColumn .box img {
+    margin-right: 15px;
+    width: 150px; /* Mobil ekranlarda daha küçük resim */
+    height: auto;
+}
+
+.box p {
+    margin: 0;
+    padding-top: 5px;
+    font-size: 1rem; /* Mobil uyumluluk için font boyutu azaltıldı */
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.buttonSepeteEkle {
+    border: none;
+    border-radius: 10px;
+    background-color: #f5a623;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+}
+.buttonSepeteEkle:hover {
+    background-color: #e59400;
+}
+.cartButton {
+    border: none;
+    border-radius: 10px;
+    background-color: #f5a623;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+    margin-left: 10px; /* Mobil ekranlarda biraz daha yakın */
+}
+.urunButton {
+    border: none;
+    border-radius: 15px;
+    background-color: #f5a623;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.urunButton:hover {
+    background-color: #e59400;
+}
+.cartButton:hover {
+    background-color: #e59400;
+}
+
+/* Mobil uyumlu düzenlemeler */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 10px; /* Küçük ekranlarda padding azaltıldı */
+    }
+    .navbar {
+        flex-direction: column; /* Menü öğelerini dikey hizalar */
+    }
+    .menuImg img {
+        height: 6rem; /* Mobil ekranlarda daha küçük resimler */
+    }
+    .menu .menuKahveBox {
+        padding: 0; /* Dikey padding kaldırıldı */
+    }
+    .menuKahveColumn {
+        margin: 5px 0; /* Dikey margin */
+    }
+    .box {
+        flex-direction: column; /* Resim ve metni dikey hizalar */
+        align-items: flex-start; /* Sol hizalar */
+    }
+    .menuKahveColumn .box img {
+        margin-right: 0; /* Resim ile metin arasındaki boşluk kaldırıldı */
+        margin-bottom: 10px; /* Resim ile metin arasına boşluk ekler */
+        width: 100%; /* Resim genişliği %100 */
+    }
+    .box p {
+        font-size: 1rem; /* Yazı boyutu */
+    }
+    .cartButton {
+        margin-left: 0; /* Sağdan margin kaldırıldı */
+        margin-top: 10px; /* Üstten boşluk ekler */
+    }
+}

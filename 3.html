@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SUM Cafe</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="menuImg"><img src="images/kahve1.jpg" alt=""></a>
+                <a href="#" class="menuImg"><img src="images/haburger1.jpg" alt=""></a>
+                <a href="#" class="menuImg"><img src="images/pizza1.jpg" alt=""></a>
+                <a href="sepet.html" > 
+                    <button class="cartButton" onclick="sepetiYukle()" id = "sepetiGoster">Sepeti Göster</button>
+                </a>
+               
+            </nav>
+        </header>
+        <div class="menu">
+            <h1>Menu</h1>
+            <h2>Kahveler</h2>
+            <div class="menuKahveBox">     
+                <div class="menuKahveColumn">
+                    <div class="box">
+                        <img src="images/kahve2.jpg" >
+                        <p>Türk Kahvesi     50TL</p>
+                        <button type="button" id= "kahve1-button" class="buttonSepeteEkle" onclick="sepeteEkle('kahve1')">Sepete Ekle</button>
+                    </div>
+                    <div class="box">
+                        <img src="images/cay1.jpg">
+                        <p>Çay    20TL</p>
+                        <button type="button" id= "kahve2-button" class="buttonSepeteEkle" onclick="sepeteEkle('cay1')">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,17 +1,17 @@
 
 
-function sepetiBosalt(){
+function sepetiBosalt() {
     localStorage.clear();
     alert("Sepet boşaltıldı!");
     document.getElementById("sepet-icerik").innerHTML = "";
-    sepetiYukle();
+    location.href = "3.html";
 }
 
-function sepeteEkle(item){
+function sepeteEkle(item) {
 
-    
 
-    if(item == "kahve1"){
+
+    if (item == "kahve1") {
         var sepeteEkleUrun = localStorage.getItem(item);
         if (sepeteEkleUrun) {
             sepeteEkleUrun = JSON.parse(sepeteEkleUrun);
@@ -25,9 +25,9 @@ function sepeteEkle(item){
                 resim: "images/kahve2.jpg",
                 toplamFiyat: 50
             };
-        }    
+        }
     }
-    else if(item == "cay1"){
+    else if (item == "cay1") {
         var sepeteEkleUrun = localStorage.getItem(item);
         if (sepeteEkleUrun) {
             sepeteEkleUrun = JSON.parse(sepeteEkleUrun);
@@ -41,13 +41,22 @@ function sepeteEkle(item){
                 resim: "images/cay1.jpg",
                 toplamFiyat: 20
             };
-        }  
+        }
     }
 
 
     localStorage.setItem(item, JSON.stringify(sepeteEkleUrun));
-
-    alert(sepeteEkleUrun.isim + " sepete eklendi! Toplam miktar: " + sepeteEkleUrun.miktar);
+    var datacay = JSON.parse(localStorage.getItem("cay1")) === null ? 0 : JSON.parse(localStorage.getItem("cay1")).miktar;
+    var datakahve = JSON.parse(localStorage.getItem("kahve1")) === null ? 0 : JSON.parse(localStorage.getItem("kahve1")).miktar;
+    var count = datacay + datakahve;
+    document.getElementById("sepetiGoster").innerText = "Sepeti Göster " + count;
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: sepeteEkleUrun.isim + " sepete eklendi! Toplam miktar: " + sepeteEkleUrun.miktar,
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
 
 // Call sepetiYukle if on sepet.html
@@ -57,36 +66,7 @@ if (window.location.pathname.includes("sepet.html")) {
 
 function sepetiYukle() {
 
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        if (key.startsWith("kahve1")) {
-            let value = localStorage.getItem(key);
-            if (value) {
-                value = JSON.parse(value);
-        
-                document.getElementById("kahve-isim").innerText = value.isim;
-                document.getElementById("kahve-fiyat").innerText = value.toplamFiyat;
-                document.getElementById("kahve-miktar").innerText = value.miktar;
-                document.getElementById("kahve-resim").src = value.resim;
-            } else {
-                document.getElementById("sepet-icerik").innerHTML = "<p>Sepet boş!</p>";
-            }
-            document.getElementById("Cay").onclose();
-        }
-        else if(key.startsWith("cay1")) {
-            let value = localStorage.getItem(key);
-            if (value) {
-                value = JSON.parse(value);
-        
-                document.getElementById("cay-isim").innerText = value.isim;
-                document.getElementById("cay-fiyat").innerText = value.toplamFiyat;
-                document.getElementById("cay-miktar").innerText = value.miktar;
-                document.getElementById("cay-resim").src = value.resim;
-            } else {
-                document.getElementById("sepet-icerik").innerHTML = "<p>Sepet boş!</p>";
-            }
-        }
-    }
+    
 }
 
 function urunArtir(item) {
@@ -95,13 +75,13 @@ function urunArtir(item) {
         urunBilgi = JSON.parse(urunBilgi);
         urunBilgi.miktar += 1;
         urunBilgi.toplamFiyat = urunBilgi.fiyat * urunBilgi.miktar;
-        
+
         localStorage.setItem(item, JSON.stringify(urunBilgi));
-    } else { 
-        urunBilgi = { miktar: 1, toplamFiyat:50 };
+    } else {
+        urunBilgi = { miktar: 1, toplamFiyat: 50 };
         localStorage.setItem(item, JSON.stringify(urunBilgi));
     }
-    sepetiYukle();
+    location.reload();
 }
 
 function urunAzalt(item) {
@@ -111,13 +91,13 @@ function urunAzalt(item) {
         urunBilgi.miktar -= 1;
         urunBilgi.toplamFiyat -= urunBilgi.fiyat;
         localStorage.setItem(item, JSON.stringify(urunBilgi));
-    } else { 
-        urunBilgi = { miktar: 1, toplamFiyat:50 };
+    } else {
+        urunBilgi = { miktar: 1, toplamFiyat: 50 };
         localStorage.setItem(item, JSON.stringify(urunBilgi));
     }
-    if(urunBilgi.miktar < 0){
+    if (urunBilgi.miktar < 0) {
         localStorage.removeItem(item);
     }
-    sepetiYukle();
+    location.reload();
 }
 
